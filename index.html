@@ -9,13 +9,28 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet" />
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+<!-- 첫 화면 제목용: 단정하지만 요즘 느낌의 한글 산세리프 -->
+<link href="https://cdn.jsdelivr.net/gh/wanteddev/wanted-sans@v1.0.3/packages/wanted-sans/fonts/webfonts/variable/split/WantedSansVariable.min.css" rel="stylesheet" />
+<link rel="preload" as="image" href="assets/img/ksep-emblem-lg.png" />
 <link rel="icon" type="image/png" href="assets/img/favicon.png" />
 <link rel="stylesheet" href="assets/css/site.css" />
 <link rel="stylesheet" href="assets/css/home.css" />
+<link rel="stylesheet" href="assets/css/intro.css" />
 </head>
 <body class="home">
 <!-- SIK 메인과 같은 틀: 맨 위 한 줄 → 로고·메뉴 → 여백 위의 히어로 → 서명 → 제품 그리드.
      SIK 히어로의 모델 사진 두 장 자리에 돌아가는 행거가 들어간다. -->
+
+<!-- 첫 화면: 학회 마크 + '한국운동생리학회 굿즈샵'. 스크롤하면 새떼가 지나가며 쇼핑몰로 넘어간다 (assets/js/intro.js) -->
+<section class="intro" id="intro" aria-label="한국운동생리학회 굿즈샵">
+  <div class="intro-in">
+    <img class="intro-mark" src="assets/img/ksep-emblem-lg.png" alt="한국운동생리학회 마크" width="1100" height="1100">
+    <h1 class="intro-title">한국운동생리학회 굿즈샵</h1>
+    <p class="intro-sub">KSEP GOODS SHOP</p>
+  </div>
+  <button class="intro-hint" type="button">스크롤하여 입장 <span aria-hidden="true">↓</span></button>
+</section>
+<canvas class="flock" id="flock" aria-hidden="true"></canvas>
 
 <p class="h-rail serif">Korean Society of Exercise Physiology — signature goods, 2026</p>
 
@@ -81,5 +96,7 @@
 <script src="assets/turn/turn.js"></script>
 <script src="assets/js/rail3d.js"></script>
 <script src="assets/js/home.js"></script>
+<script src="assets/js/birds.js"></script>
+<script src="assets/js/intro.js"></script>
 </body>
 </html>

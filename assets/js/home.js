@@ -14,13 +14,13 @@
   $("grid").innerHTML = D.colors.map((c) => `
     <a class="h-card" href="product.html?color=${c.id}">
       <div class="shot"><img src="${D.img(c.id, "model-front")}" alt="${P.nameKo} ${c.ko} 착용" loading="lazy"></div>
-      <div class="h-card-meta"><span>${P.nameKo} — ${c.ko}</span><span>${P.price}</span></div>
+      <div class="h-card-meta"><span>${P.nameKo} — ${c.ko}</span><span>${c.price} · ${c.pair}</span></div>
     </a>`).join("");
 
   $("buy-until").textContent = `~ ${S.until}`;
   $("buy-list").innerHTML = `
-    <dt>가격</dt><dd>${P.price} · ${P.discount}</dd>
-    <dt>종류</dt><dd>회색 · ${D.colors.map((c) => c.ko).join(" / ")}</dd>
+    ${D.colors.map((c) => `<dt>${c.ko}</dt><dd>${c.price} · ${c.pair}</dd>`).join("")}
+    <dt>증정</dt><dd>${P.gift}</dd>
     <dt>사이즈</dt><dd>${P.sizes.map((z) => `${z.label} (${z.chest}) ${z.qty}`).join(" · ")}</dd>
     <dt>판매 기간</dt><dd>~ ${S.until}</dd>
     <dt>구매 방법</dt><dd>구매하기 → 신청서 작성 → ${S.method} → ${S.delivery}</dd>

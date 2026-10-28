@@ -8,8 +8,8 @@ window.KSEP = {
     nameKo: "KSEP 한정판 맨투맨",
     lead: "KSEP 학회 공동체의 소속감을 담은 시그니처 굿즈입니다.",
     desc: "연구실, 강의실, 학술대회 등 어디서나 어울리는 회색으로 만들었습니다.",
-    price: "$35 (50,000원)",
-    discount: "2개 구매 시 20% 할인",
+    // 가격은 버전마다 다르다 → 아래 colors 의 price / pair. 여기엔 공통 혜택만
+    gift: "선착순 구매자에게 KSEP Annual Meeting Book 증정",
     sizes: [
       { label: "M", chest: "100", qty: "49개" },
       { label: "L", chest: "105", qty: "20개" },
@@ -28,12 +28,13 @@ window.KSEP = {
   },
 
   // 판매 버전 — 색은 회색 하나, 로고 방식만 둘 (2026-10-28 변경: 5색 → 회색 나염·자수)
+  //   price = 1벌 가격, pair = 2벌 묶음 가격
   //   img  = 사진 파일 앞머리 (assets/img/{img}-front.webp 등)
   //   turn = 회전 프레임 폴더 (assets/turn/{turn}/)
   // 이름이 colors 인 건 예전 5색 시절 구조를 그대로 쓰기 때문이다.
   colors: [
-    { id: "print", name: "Screen print", ko: "나염", swatch: "#b8b8b4", img: "grey", turn: "grey" },
-    { id: "emb",   name: "Embroidery",   ko: "자수", swatch: "#b8b8b4", img: "emb",  turn: "emb" },
+    { id: "print", name: "Screen print", ko: "나염", swatch: "#b8b8b4", img: "grey", turn: "grey", price: "45,000원", pair: "2벌 70,000원" },
+    { id: "emb",   name: "Embroidery",   ko: "자수", swatch: "#b8b8b4", img: "emb",  turn: "emb",  price: "50,000원", pair: "2벌 80,000원" },
   ],
 
   // 행거에 거는 순서 (버전 id). 나염 2벌, 자수 2벌을 이어서 건다 — 같은 버전끼리 묶여 "나염 라인 / 자수 라인" 이름이 붙는다

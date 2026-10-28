@@ -23,12 +23,13 @@
   $("desc").textContent = `${P.lead} ${P.desc}`;
   $("spec").innerHTML =
     `<div><span class="eyebrow">Size</span><p>${P.sizes.map((z) => `${z.label} (${z.chest})`).join(" · ")}</p></div>` +
-    `<div><span class="eyebrow">Price</span><p>${P.price}<small>${P.discount}</small></p></div>`;
+    `<div><span class="eyebrow">Price</span><p id="price"></p></div>`;
   $("acc").innerHTML = `
     <details><summary>스타일링 노트</summary><div class="acc-body">${P.fabric}과 ${P.fit}. ${P.desc}</div></details>
     <details><summary>사이즈 안내</summary><div class="acc-body"><dl>${P.sizes.map((z) => `<dt>${z.label} (${z.chest})</dt><dd>${z.qty}</dd>`).join("")}</dl></div></details>
     <details><summary>구매 안내</summary><div class="acc-body">
-      <dl><dt>가격</dt><dd>${P.price} · ${P.discount}</dd>
+      <dl>${D.colors.map((c) => `<dt>${c.ko}</dt><dd>${c.price} · ${c.pair}</dd>`).join("")}
+      <dt>증정</dt><dd>${P.gift}</dd>
       <dt>판매 기간</dt><dd>~ ${S.until}</dd>
       <dt>구매 방법</dt><dd>구매하기 → 신청서 작성 → ${S.method} → ${S.delivery}</dd>
       <dt>결제 계좌</dt><dd>${S.account} (${S.holder})</dd></dl></div></details>`;
@@ -65,6 +66,8 @@
   function render() {
     photos = shots(color);
     document.title = `${P.nameKo} (${color.ko}) — KSEP`;
+    // 가격은 고른 버전(나염/자수)에 따라 바뀐다
+    $("price").innerHTML = `${color.price}<small>${color.pair} · ${P.gift}</small>`;
     document.querySelectorAll(".type-chip").forEach((d) => d.setAttribute("aria-pressed", d.dataset.id === color.id ? "true" : "false"));
 
     $("thumbs").innerHTML = photos.map((p, i) =>
