@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KSEP Rack</title>
+<!-- 행거만 따로 보는 화면. 다른 사이트에 iframe 으로 넣을 때 이 주소를 쓴다.
+     상세 링크는 새 창이 아니라 부모 창에서 열리도록 base target 을 _top 으로 둔다. -->
+<base target="_top" />
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+<link rel="stylesheet" href="assets/css/site.css" />
+<style>
+  body { background: var(--panel); }
+  body { min-height: 100vh; display: flex; flex-direction: column; }
+  .rack { flex: 1; padding-top: 34px; }
+  .rack-rail { top: 34px; }
+</style>
+</head>
+<body>
+  <div class="rack" data-rack data-link="product.html"></div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/rack.js"></script>
+</body>
+</html>

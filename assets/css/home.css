@@ -1,0 +1,154 @@
+/* KSEP 메인 — SIK 메인과 같은 틀(흰 바탕, 한 줄 문구, 로고·메뉴, 여백 위 히어로, 서명, 그리드).
+   SIK 의 모델 사진 두 장 자리에 회전 행거를 둔다.
+   회전 사진은 흰 바탕 영상에서 뽑은 것이라, 페이지 바탕을 순백(#fff)으로 두고
+   multiply 로 겹치면 사진의 흰 테두리가 바탕에 녹아 옷만 떠 보인다. 바탕색을 바꾸지 말 것. */
+
+body.home {
+  --bg: #fff; --line: #e8e6e0; --mute: #87847c;
+  --pad: clamp(16px, 4.5vw, 68px);
+  background: #fff;
+}
+
+/* ── 맨 위 한 줄 ── */
+.h-rail { margin: 0; padding: 12px var(--pad) 11px; text-align: center; font-size: clamp(12px, 1vw, 14px); border-bottom: 1px solid var(--line); }
+
+/* ── 헤더 ── */
+.h-head {
+  position: sticky; top: 0; z-index: 30; background: #fff; border-bottom: 1px solid var(--line);
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 48px; padding: 18px var(--pad);
+}
+.h-head .brand { font-size: 13px; letter-spacing: .2em; gap: 10px; }
+.h-head .brand-emblem { width: 26px; height: 26px; }
+.h-nav { display: flex; gap: 32px; font-size: clamp(12px, 1.05vw, 15px); letter-spacing: .045em; }
+.h-nav a, .h-side { position: relative; padding-bottom: 2px; }
+.h-nav a::after, .h-side::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px; background: currentColor;
+  transform: scaleX(0); transform-origin: left; transition: transform .32s cubic-bezier(.2,.7,.3,1);
+}
+.h-nav a:hover::after, .h-side:hover::after { transform: scaleX(1); }
+.h-side { font-size: clamp(12px, 1.05vw, 15px); }
+
+/* ── 히어로: 행거 ── */
+.h-hero { padding: clamp(48px, 7vw, 104px) var(--pad) clamp(40px, 5vw, 72px); }
+.rail {
+  /* --h = 옷 높이(옆모습과 정면이 같은 높이로 돈다) */
+  --h: clamp(260px, 34vw, 520px);
+  position: relative; max-width: 1180px; margin: 0 auto;
+  padding-top: 40px;
+}
+/* 레일: 천장에서 내려온 두 기둥 + 둥근 쇠막대. 그라데이션으로 원통 느낌만 낸다 */
+.rail-bar {
+  position: absolute; left: 0; right: 0; top: 40px; height: 5px; border-radius: 3px;
+  background: linear-gradient(#c9cbcd, #f4f5f6 35%, #9ea2a6 80%, #84888c);
+  box-shadow: 0 1px 2px rgba(0,0,0,.12);
+}
+.rail-bar::before, .rail-bar::after {
+  content: ""; position: absolute; bottom: 2px; width: 3px; height: 40px;
+  background: linear-gradient(90deg, #a5a9ad, #eceef0 50%, #95999d);
+}
+.rail-bar::before { left: 2.5%; }
+.rail-bar::after { right: 2.5%; }
+
+/* 화면이 좁아 다섯 벌이 다 안 들어가면 옆으로 넘겨 본다. 'safe center' 라야 넘칠 때 왼쪽 옷이 잘려 사라지지 않는다.
+   overflow 가 고리 윗부분을 자르지 않게 위로 14px 끌어올리고 그만큼 안쪽 여백을 준다. */
+.rail-row {
+  position: relative; display: flex; justify-content: safe center; align-items: flex-start;
+  height: calc(var(--h) + 84px); margin-top: -14px; padding-top: 17px;
+  overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+}
+.rail-row::-webkit-scrollbar { display: none; }
+.rail-item {
+  position: relative; flex: none; height: 100%;
+  width: var(--w, 120px);             /* 회전하는 만큼 JS 가 매 프레임 폭을 바꾼다 */
+  cursor: pointer; outline: none;
+  /* 부풀린 캔버스의 흰 여백이 칸 밖으로 나가 가로 스크롤 길이를 늘리지 않게 옆만 자른다 (고리가 있는 위쪽은 그대로) */
+  overflow-x: clip; overflow-y: visible;
+  -webkit-tap-highlight-color: transparent;
+}
+.rail-item:focus-visible .rail-shadow { background: radial-gradient(closest-side, rgba(74,86,60,.45), transparent); }
+.rail-hook { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); width: 14px; height: calc(32px + var(--neck, 0px)); z-index: 1; pointer-events: none; }
+.rail-item canvas, .rail-still {
+  position: absolute; top: 18px; left: 50%; transform: translateX(-50%);
+  height: var(--h); width: auto; z-index: 2; pointer-events: none;
+  mix-blend-mode: multiply;            /* 흰 테두리를 바탕에 녹인다 */
+}
+/* 바닥 그림자 — 옷 폭을 따라 넓어져서 돌 때 입체감이 생긴다 */
+.rail-shadow {
+  position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
+  width: calc(var(--w, 120px) * .9); height: 18px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0,0,0,.16), transparent);
+  pointer-events: none;
+}
+
+.rail-meta {
+  max-width: 1180px; margin: 14px auto 0; padding-top: 12px; border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+}
+.rail-now { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; white-space: nowrap; }
+.rail-now .swatch { margin: 0; }
+.rail-now:hover span:last-child { transform: translateX(3px); }
+.rail-now span:last-child { transition: transform .25s; }
+
+/* ── 서명 ── */
+.h-sign { text-align: center; padding: clamp(24px, 4vw, 56px) var(--pad) clamp(64px, 9vw, 124px); }
+.h-sign img { width: 56px; height: 56px; margin: 0 auto 18px; }
+.h-sign-main { margin: 0; font-size: clamp(22px, 2.4vw, 34px); line-height: 1.15; }
+.h-sign-sub { margin: 14px auto 0; max-width: 34ch; font-family: var(--sans); font-size: 13px; color: var(--mute); word-break: keep-all; }
+
+/* ── 그리드 ── */
+.h-grid-sec { padding: 0 var(--pad) clamp(64px, 9vw, 120px); }
+.h-grid-in { max-width: 1060px; margin: 0 auto; }
+.h-sec-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding-bottom: 16px; border-bottom: 1px solid var(--line); margin-bottom: clamp(26px, 4vw, 50px);
+}
+.h-sec-head h2 { margin: 0; color: var(--ink); }
+.num { font-variant-numeric: tabular-nums; }
+.h-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 3.2vw, 52px) clamp(16px, 2.4vw, 36px); }
+.h-card { display: block; }
+.h-card .shot { aspect-ratio: 3 / 4; background: #f4f3ef; overflow: hidden; }
+.h-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.3,1); }
+.h-card:hover img { transform: scale(1.035); }
+.h-card-meta { display: flex; justify-content: space-between; gap: 14px; margin-top: 14px; font-size: 12px; align-items: baseline; }
+.h-card-meta span:last-child { color: var(--mute); white-space: nowrap; }
+.h-card-meta .swatch { vertical-align: 0; }
+
+/* ── 판매 안내 ── */
+.h-buy { padding: 0 var(--pad) clamp(64px, 9vw, 120px); }
+.h-buy-list { display: grid; grid-template-columns: 120px 1fr; margin: 0; font-size: 13px; }
+.h-buy-list dt, .h-buy-list dd { padding: 13px 0; border-bottom: 1px solid var(--line); margin: 0; }
+.h-buy-list dt { color: var(--mute); }
+.h-buy-list dd { word-break: keep-all; }
+.h-buy-btn { margin-top: 28px; max-width: 360px; }
+.h-grid { grid-template-columns: repeat(2, 1fr); max-width: 760px; margin: 0 auto; }   /* 자수·나염 두 장 */
+
+/* ── 푸터 ── */
+.h-foot { border-top: 1px solid var(--line); padding: 34px var(--pad) 44px; font-size: 11px; color: var(--mute); }
+.h-foot-in { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 820px) {
+  .h-head { grid-template-columns: 1fr auto; gap: 16px; padding: 14px var(--pad); }
+  .h-nav { display: none; }
+  .h-side { font-size: 12px; }
+  .rail { --h: clamp(180px, 40vw, 320px); }
+  .h-grid { grid-template-columns: repeat(2, 1fr); }
+  .h-card-meta { flex-direction: column; gap: 4px; }
+  .rail-meta { flex-direction: column; gap: 8px; }
+  .h-buy-list { grid-template-columns: 72px 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .h-card img, .h-nav a::after, .h-side::after { transition: none; }
+}
+
+/* 공통 img{max-width:100%} 가 걸리면 좁은 칸에 맞춰 사진이 찌그러진다. 캔버스처럼 제 비율 그대로 그린다 */
+.rail-still { max-width: none; }
+
+/* 같은 버전 묶음 (나염 2벌 / 자수 2벌). 묶음 사이를 조금 띄우고, 아래 가운데에 '나염 라인' 이름을 단다 */
+.rail-group { position: relative; display: flex; align-items: flex-start; height: 100%; flex: none; }
+.rail-group + .rail-group { margin-left: clamp(16px, 3vw, 44px); }
+.rail-tag {
+  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  font-size: 12px; letter-spacing: .04em; color: var(--mute); white-space: nowrap; pointer-events: none;
+  transition: color .25s;
+}
+.rail-group:has(.is-open) .rail-tag { color: var(--ink); }

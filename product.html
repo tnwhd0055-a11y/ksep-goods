@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Signature crewneck — KSEP</title>
+<meta name="description" content="KSEP 한정판 맨투맨 상세. 한국운동생리학회 시그니처 굿즈." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+<link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+
+<header class="site-head">
+  <div class="site-head-in">
+    <a class="brand" href="index.html" aria-label="KSEP 홈"><img class="brand-emblem" src="assets/img/ksep-emblem.png" alt="" width="22" height="22">KSEP<span class="brand-dot"></span></a>
+    <nav class="site-nav" aria-label="주요 메뉴">
+      <a href="#edit">THE EDIT</a>
+      <a href="index.html">행거 둘러보기 ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="crumb">
+      <span><a href="index.html">Home</a> / <a href="#edit">The Edit</a> / <span id="crumb-no">01</span></span>
+      <span class="eyebrow">Signature goods — 2026</span>
+    </div>
+
+    <!-- 첫 화면: 사진 + 상품 정보 -->
+    <section class="pdp">
+      <div>
+        <button class="gallery-main" id="main" type="button" aria-label="사진 크게 보기">
+          <img id="main-img" src="" alt="" />
+          <span class="gallery-count" id="count">01 / 04</span>
+          <span class="gallery-zoom" aria-hidden="true">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 4h6v6M10 20H4v-6M20 4l-7 7M4 20l7-7"/></svg>
+          </span>
+        </button>
+        <div class="gallery-cap"><span id="cap"></span><span class="eyebrow" id="cap-no"></span></div>
+        <div class="thumbs" id="thumbs" role="list" aria-label="사진 목록"></div>
+      </div>
+
+      <div class="pdp-info">
+        <div class="pdp-row">
+          <span class="eyebrow" id="cat"></span>
+          <span class="pdp-no">No. <span id="no"></span></span>
+        </div>
+        <h1 class="pdp-title-ko" id="name"></h1>
+        <p class="pdp-desc" id="desc"></p>
+
+        <div class="colors">
+          <div class="type-chips" id="dots" role="group" aria-label="로고 방식 선택"></div>
+          <span class="eyebrow">Grey · 로고 방식</span>
+        </div>
+
+        <div class="spec" id="spec"></div>
+
+        <div class="pdp-actions">
+          <!-- 신청 폼으로 연결 (주소는 data.js 의 sale.formUrl). 주소가 없으면 잠긴 버튼으로 보인다 -->
+          <a class="btn-olive btn-buy" id="buy" href="#" target="_blank" rel="noopener"><span id="buy-label">구매하기</span> <span aria-hidden="true">→</span></a>
+          <a class="pdp-more" href="#angles">디테일과 스타일링 살펴보기 ↓</a>
+        </div>
+
+        <div class="acc" id="acc"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 01 각도 -->
+  <section class="ed" id="angles">
+    <div class="wrap">
+      <div class="ed-head">
+        <div>
+          <div class="eyebrow">01 / How it falls</div>
+          <h2 class="serif">Clean lines. <em>An easy rhythm.</em></h2>
+        </div>
+        <p id="ang-text"></p>
+      </div>
+      <div class="angles">
+        <img id="ang-a" src="" alt="" loading="lazy" />
+        <div class="side">
+          <div class="serif">Different angles. <em>The same ease.</em></div>
+          <img id="ang-b" src="" alt="" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 디테일 -->
+  <section class="ed">
+    <div class="wrap">
+      <div class="points">
+        <div class="point"><span class="eyebrow">01</span><h3>Arched wordmark</h3><p>가슴에 크게 들어간 KSEP 아치 로고와 학회 영문명.</p></div>
+        <div class="point"><span class="eyebrow">02</span><h3>Signature label</h3><p>목 안쪽과 옆선에 들어간 하늘색 KSEP 라벨.</p></div>
+        <div class="point"><span class="eyebrow">03</span><h3>Ribbed finish</h3><p>목둘레·소매·밑단을 시보리로 마감했습니다.</p></div>
+      </div>
+      <div class="ed-head">
+        <div>
+          <div class="eyebrow">02 / The small details</div>
+          <h2 class="serif">Closer, <em>more personal.</em></h2>
+        </div>
+        <p>가까이 볼 때 보이는 부분들입니다. 사진을 누르면 크게 볼 수 있습니다.</p>
+      </div>
+      <div class="details" id="details"></div>
+    </div>
+  </section>
+
+  <!-- 03 제품 -->
+  <section class="ed piece-band">
+    <div class="wrap piece">
+      <div>
+        <div class="piece-img"><img id="piece-img" src="" alt="" loading="lazy" /></div>
+        <div class="eyebrow piece-cap">The piece / 제품 이미지</div>
+      </div>
+      <div>
+        <div class="eyebrow">03 / The piece</div>
+        <h2 class="serif">A steady, <em>everyday shape.</em></h2>
+        <p id="piece-text"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 다른 색 -->
+  <section class="ed" id="edit">
+    <div class="wrap">
+      <div class="ed-head">
+        <div>
+          <div class="eyebrow">The edit</div>
+          <h2 class="serif">The other <em>finish.</em></h2>
+        </div>
+        <p>같은 회색, 다른 로고 방식. 자수와 나염 중에서 골라 보세요.</p>
+      </div>
+      <div class="edit-row" id="others"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap site-foot-in">
+    <span class="foot-brand"><img src="assets/img/ksep-emblem.png" alt="한국운동생리학회 마크" width="42" height="42"><span><strong>KSEP</strong>&nbsp;&nbsp;Korean Society of Exercise Physiology<br>한국운동생리학회 · Founded 1988</span></span>
+    <span>Signature Goods — 2026</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+  <img id="lb-img" src="" alt="" />
+  <button class="lb-btn lb-close" id="lb-close" type="button" aria-label="닫기">✕</button>
+  <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="이전 사진">←</button>
+  <button class="lb-btn lb-next" id="lb-next" type="button" aria-label="다음 사진">→</button>
+  <span class="eyebrow lb-count" id="lb-count"></span>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/product.js"></script>
+</body>
+</html>

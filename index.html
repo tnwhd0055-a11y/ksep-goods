@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>KSEP Signature Goods — 한국운동생리학회</title>
+<meta name="description" content="한국운동생리학회 KSEP 한정판 맨투맨. 회색, 자수·나염 두 가지." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet" />
+<link rel="icon" type="image/png" href="assets/img/favicon.png" />
+<link rel="stylesheet" href="assets/css/site.css" />
+<link rel="stylesheet" href="assets/css/home.css" />
+</head>
+<body class="home">
+<!-- SIK 메인과 같은 틀: 맨 위 한 줄 → 로고·메뉴 → 여백 위의 히어로 → 서명 → 제품 그리드.
+     SIK 히어로의 모델 사진 두 장 자리에 돌아가는 행거가 들어간다. -->
+
+<p class="h-rail serif">Korean Society of Exercise Physiology — signature goods, 2026</p>
+
+<header class="h-head">
+  <a class="brand" href="index.html" aria-label="KSEP 홈"><img class="brand-emblem" src="assets/img/ksep-emblem.png" alt="" width="26" height="26">KSEP</a>
+  <nav class="h-nav serif" aria-label="주요 메뉴">
+    <a href="#rail">THE RAIL</a>
+    <a href="#colors">LINE UP</a>
+    <a href="product.html">THE PIECE</a>
+  </nav>
+  <a class="h-side serif" href="#buy">구매 안내</a>
+</header>
+
+<main>
+  <!-- 히어로: 레일에 걸린 네 벌(자수 2 · 나염 2). 커서를 올린 옷이 옆모습에서 정면으로 돈다 -->
+  <section class="h-hero" id="rail" aria-label="KSEP 맨투맨 자수·나염 행거">
+    <div class="rail" data-rail data-link="product.html"></div>
+    <div class="rail-meta">
+      <span class="eyebrow" id="rail-hint">
+        <span class="only-hover">커서를 올리면 옷이 돌아갑니다 · 누르면 상세로</span>
+        <span class="only-touch">옷을 누르면 돌아갑니다 · 한 번 더 누르면 상세로</span>
+      </span>
+      <a class="rail-now" id="rail-now" href="product.html"><span class="swatch" id="rail-sw"></span><span id="rail-name"></span><span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="h-sign serif">
+    <img src="assets/img/ksep-emblem.png" alt="한국운동생리학회 마크" width="56" height="56">
+    <p class="h-sign-main">Since 1988, <em>in motion.</em></p>
+    <p class="h-sign-sub">한국운동생리학회가 처음 만든 시그니처 맨투맨. 회색 한 가지, 로고는 자수와 나염 두 가지.</p>
+  </section>
+
+  <section class="h-grid-sec" id="colors">
+    <div class="h-grid-in">
+      <div class="h-sec-head">
+        <h2 class="eyebrow">Line up</h2>
+        <span class="eyebrow num">02</span>
+      </div>
+      <div class="h-grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="h-buy" id="buy">
+    <div class="h-grid-in">
+      <div class="h-sec-head">
+        <h2 class="eyebrow">구매 안내</h2>
+        <span class="eyebrow" id="buy-until"></span>
+      </div>
+      <dl class="h-buy-list" id="buy-list"></dl>
+      <a class="btn-olive btn-buy h-buy-btn" id="buy-btn" href="#" target="_blank" rel="noopener"><span id="buy-btn-label">구매하기</span> <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</main>
+
+<footer class="h-foot">
+  <div class="h-foot-in">
+    <span class="foot-brand"><img src="assets/img/ksep-emblem.png" alt="" width="42" height="42"><span><strong>KSEP</strong>&nbsp;&nbsp;Korean Society of Exercise Physiology<br>한국운동생리학회 · Founded 1988</span></span>
+    <span class="eyebrow">Signature goods — 2026</span>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/turn/turn.js"></script>
+<script src="assets/js/rail3d.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>
