@@ -28,13 +28,13 @@ window.KSEP = {
   },
 
   // 판매 버전 — 색은 회색 하나, 로고 방식만 둘 (2026-10-28 변경: 5색 → 회색 나염·자수)
-  //   price = 1벌 가격, pair = 2벌 묶음 가격
+  //   price = 1장 가격, pair = 2장 구매 시 가격
   //   img  = 사진 파일 앞머리 (assets/img/{img}-front.webp 등)
   //   turn = 회전 프레임 폴더 (assets/turn/{turn}/)
   // 이름이 colors 인 건 예전 5색 시절 구조를 그대로 쓰기 때문이다.
   colors: [
-    { id: "print", name: "Screen print", ko: "나염", swatch: "#b8b8b4", img: "grey", turn: "grey", price: "45,000원", pair: "2벌 70,000원" },
-    { id: "emb",   name: "Embroidery",   ko: "자수", swatch: "#b8b8b4", img: "emb",  turn: "emb",  price: "50,000원", pair: "2벌 80,000원" },
+    { id: "print", name: "Screen print", ko: "나염", swatch: "#b8b8b4", img: "grey", turn: "grey", price: "45,000원", pair: "2장 구매 시 70,000원" },
+    { id: "emb",   name: "Embroidery",   ko: "자수", swatch: "#b8b8b4", img: "emb",  turn: "emb",  price: "50,000원", pair: "2장 구매 시 80,000원" },
   ],
 
   // 행거에 거는 순서 (버전 id). 나염 2벌, 자수 2벌을 이어서 건다 — 같은 버전끼리 묶여 "나염 라인 / 자수 라인" 이름이 붙는다

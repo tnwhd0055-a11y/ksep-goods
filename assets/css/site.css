@@ -296,3 +296,8 @@ button { font: inherit; color: inherit; }
 .type-chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: #fff; }
 .btn-buy[aria-disabled="true"] { background: #e6e4de; color: var(--mute); cursor: not-allowed; }
 .btn-buy[aria-disabled="true"]:hover { background: #e6e4de; }
+
+/* 한 문장짜리 설명은 끝 몇 글자만 다음 줄로 떨어지지 않게 한 줄로 (넓은 화면).
+   좁은 화면에선 줄바꿈을 허용하되 어절 단위로만 끊는다 */
+.ed-head p { word-break: keep-all; }
+@media (min-width: 761px) { .ed-head p.one-line { max-width: none; white-space: nowrap; } }
