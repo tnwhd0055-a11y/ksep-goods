@@ -301,3 +301,8 @@ button { font: inherit; color: inherit; }
    좁은 화면에선 줄바꿈을 허용하되 어절 단위로만 끊는다 */
 .ed-head p { word-break: keep-all; }
 @media (min-width: 761px) { .ed-head p.one-line { max-width: none; white-space: nowrap; } }
+
+/* 라벨 항목·라벨 사진을 뺀 뒤: 포인트 2개, 디테일 사진 1장 */
+.points.two { grid-template-columns: repeat(2, 1fr); }
+.details.single { grid-template-columns: 1fr; max-width: 860px; }
+@media (max-width: 760px) { .points.two { grid-template-columns: 1fr; } }

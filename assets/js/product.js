@@ -20,7 +20,7 @@
   $("no").textContent = P.no;
   $("crumb-no").textContent = P.no;
   $("name").textContent = P.nameKo;
-  $("desc").textContent = `${P.lead} ${P.desc}`;
+  $("desc").textContent = P.lead;
   $("spec").innerHTML =
     `<div><span class="eyebrow">Size</span><p>${P.sizes.map((z) => `${z.label} (${z.chest})`).join(" · ")}</p></div>` +
     `<div><span class="eyebrow">Price</span><p id="price"></p></div>`;
@@ -80,7 +80,7 @@
     $("ang-b").src = D.img(color.id, "model-side");  $("ang-b").alt = photos[1].alt;
     $("piece-img").src = D.img(color.id, "front");   $("piece-img").alt = photos[2].alt;
 
-    const det = [["print", color.id === "emb" ? "가슴 자수" : "가슴 프린트", ""], ["collar", "목 라벨", ""], ["hem", "밑단·옆선 라벨", "d3"]];
+    const det = [["print", color.id === "emb" ? "가슴 자수" : "가슴 프린트", ""]];   // 라벨 사진(목·밑단)은 라벨을 없애기로 해서 뺐다 (2026-10-29)
     $("details").innerHTML = det.map(([k, t, cls]) =>
       `<button type="button" class="${cls}" data-src="${D.img(color.id, "detail-" + k)}" aria-label="${t} 크게 보기">
          <img src="${D.img(color.id, "detail-" + k)}" alt="${P.nameKo} ${color.ko} ${t}" loading="lazy"></button>`).join("");
