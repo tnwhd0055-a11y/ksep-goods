@@ -23,7 +23,7 @@ window.KSEP = {
       holder: "한국운동생리학회",
       delivery: "택배 발송",
       // 구매하기 버튼이 여는 신청 폼 주소. 비워 두면 버튼이 '신청 준비 중'으로 잠긴다. 링크를 받으면 여기만 바꾸면 된다.
-      formUrl: "",
+      formUrl: "https://forms.gle/7UCd2fRGoCg4bDHz7",
     },
   },
 
